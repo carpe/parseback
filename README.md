@@ -30,22 +30,12 @@ Parseback is a Scala implementation of [parsing with derivatives](http://matt.mi
 ## Usage
 
 ```sbt
-val ParsebackVersion = "0.4"
+val ParsebackVersion = "0.5"
 
-libraryDependencies += "com.codecommit" %% "parseback-core" % ParsebackVersion
-
-libraryDependencies += "com.codecommit" %% "parseback-cats" % ParsebackVersion
-// or!
-libraryDependencies += "com.codecommit" %% "parseback-scalaz-72" % ParsebackVersion
-// or!
-libraryDependencies += "com.codecommit" %% "parseback-scalaz-71" % ParsebackVersion
+libraryDependencies += "io.carpe" %% "parseback" % ParsebackVersion
 ```
 
-The current, "stable" version of parseback is **0.3**.  Cross builds are available for Scala 2.12 and 2.11.
-
-All stable, numbered releases are signed with [my key](https://keybase.io/djspiewak).
-
-Snapshots are intermittently available.  All snapshots are of the form `[version]-[hash]`, where `[version]` is the *compatible* base version (i.e. the stable version with which the snapshot is compatible).  If that base version is unreleased (i.e. a future release), then full compatibility with the ultimate release is not necessarily guaranteed.  `[hash]` is a seven character prefix of the Git hash from which the snapshot release was made.  Feel free to [make snapshots of your own!](#forks-and-releases).
+The current, "stable" version of parseback is **0.5**.  Cross builds are available for Scala 2.12 and 2.13.
 
 ## Motivation
 

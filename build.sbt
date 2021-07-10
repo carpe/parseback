@@ -16,9 +16,8 @@ import MavenPublishSettings.mavenPublishSettings
  * limitations under the License.
  */
 
-baseVersion in ThisBuild := "0.4"
-
-bintrayVcsUrl in ThisBuild := Some("git@github.com:djspiewak/parseback.git")
+ThisBuild / crossScalaVersions := Seq("2.12.14", "2.13.6")
+ThisBuild / baseVersion := "0.5"
 
 addCommandAlias("measure-all", "benchmarks/jmh:run -rff results.csv")
 addCommandAlias("measure", "benchmarks/jmh:run -rff results.csv .*parsebackRun")
@@ -33,8 +32,6 @@ lazy val root = project
   .settings(name := "root")
   .settings(noPublishSettings)
   .aggregate(benchmarks, coreJVM, coreJS)
-
-
 
 lazy val benchmarks = project
   .in(file("benchmarks"))
@@ -74,7 +71,7 @@ lazy val core = crossProject(JSPlatform, JVMPlatform)
     mimaPreviousArtifacts := Set.empty)   // TODO disable checks when sbt-spiewak has a better way of filtering versions
 
 lazy val coreJS = core.js
-  .settings(noPublishSettings)
+  .settings(mavenPublishSettings)
 lazy val coreJVM = core.jvm
   .settings(mavenPublishSettings)
 

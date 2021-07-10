@@ -4,6 +4,9 @@ import _root_.io.crashbox.gpg.SbtGpg.autoImport.gpgOptions
 
 object MavenPublishSettings {
   lazy val mavenPublishSettings: List[Def.Setting[_]] = List(
+
+    version := "0.5",
+
     /**
      * Publishing information
      *
@@ -44,8 +47,7 @@ object MavenPublishSettings {
     pomIncludeRepository := { _ => false },
     publishTo := {
       val nexus = "https://oss.sonatype.org/"
-      if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
-      else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+      Some("releases" at nexus + "service/local/staging/deploy/maven2")
     },
     publishMavenStyle := true,
 

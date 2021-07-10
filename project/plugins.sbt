@@ -15,14 +15,14 @@
  */
 
 // Contains handy sbt settings commonly found among cats/typelevel projects
-addSbtPlugin("com.codecommit"     % "sbt-spiewak-bintray" % "0.12.0")
+addSbtPlugin("com.codecommit"     % "sbt-spiewak" % "0.21.0")
 
 // Used for benchmarking
-addSbtPlugin("pl.project13.scala" % "sbt-jmh"             % "0.3.7")
+addSbtPlugin("pl.project13.scala" % "sbt-jmh" % "0.4.3")
 
 // Used for cross platform compilation support
-addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject"      % "0.6.1")
-addSbtPlugin("org.scala-js"       % "sbt-scalajs"         % "0.6.31")
+addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject" % "1.1.0")
+addSbtPlugin("org.scala-js"       % "sbt-scalajs"              % "1.6.0")
 
 // used for publishing to the sonatype repo
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.2")
