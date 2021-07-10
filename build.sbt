@@ -1,3 +1,5 @@
+import MavenPublishSettings.mavenPublishSettings
+
 /*
  * Copyright 2017 Daniel Spiewak
  *
@@ -31,6 +33,8 @@ lazy val root = project
   .settings(name := "root")
   .settings(noPublishSettings)
   .aggregate(benchmarks, coreJVM, coreJS)
+
+
 
 lazy val benchmarks = project
   .in(file("benchmarks"))
@@ -70,4 +74,7 @@ lazy val core = crossProject(JSPlatform, JVMPlatform)
     mimaPreviousArtifacts := Set.empty)   // TODO disable checks when sbt-spiewak has a better way of filtering versions
 
 lazy val coreJS = core.js
+  .settings(noPublishSettings)
 lazy val coreJVM = core.jvm
+  .settings(mavenPublishSettings)
+

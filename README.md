@@ -30,9 +30,7 @@ Parseback is a Scala implementation of [parsing with derivatives](http://matt.mi
 ## Usage
 
 ```sbt
-resolvers += "bintray-djspiewak-maven" at "https://dl.bintray.com/djspiewak/maven"
-
-val ParsebackVersion = "0.3"
+val ParsebackVersion = "0.4"
 
 libraryDependencies += "com.codecommit" %% "parseback-core" % ParsebackVersion
 

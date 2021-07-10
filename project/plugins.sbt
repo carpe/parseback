@@ -24,3 +24,6 @@ addSbtPlugin("pl.project13.scala" % "sbt-jmh"             % "0.3.7")
 addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject"      % "0.6.1")
 addSbtPlugin("org.scala-js"       % "sbt-scalajs"         % "0.6.31")
 
+// used for publishing to the sonatype repo
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.2")
+addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.1.2")
