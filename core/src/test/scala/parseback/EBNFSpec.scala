@@ -33,7 +33,7 @@ class EBNFSpec extends ParsebackSpec {
     }
 
     "reject multi" in {
-      p must failToParse("abcabcabc")(UnexpectedTrailingCharacters(Line("abcabcabc", 0, 3)))
+      p must failToParse("abcabcabc")(UnexpectedCharacter(Line("abcabcabc", 0, 3), Set("\\s+")))
     }
   }
 
