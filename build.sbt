@@ -17,7 +17,7 @@ import MavenPublishSettings.mavenPublishSettings
  */
 
 ThisBuild / crossScalaVersions := Seq("2.12.14", "2.13.6")
-ThisBuild / baseVersion := "0.5"
+ThisBuild / baseVersion := "0.5.1"
 
 addCommandAlias("measure-all", "benchmarks/jmh:run -rff results.csv")
 addCommandAlias("measure", "benchmarks/jmh:run -rff results.csv .*parsebackRun")

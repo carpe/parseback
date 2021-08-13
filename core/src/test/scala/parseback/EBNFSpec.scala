@@ -19,6 +19,8 @@ package parseback
 class EBNFSpec extends ParsebackSpec {
   import ParseError._
 
+  implicit val W = Whitespace(() | """\s+""".r)
+
   "p?" should {
     val p = literal("abc")?
 
@@ -31,7 +33,7 @@ class EBNFSpec extends ParsebackSpec {
     }
 
     "reject multi" in {
-      p must failToParse("abcabcabc")(UnexpectedTrailingCharacters(Line("abcabcabc", 0, 3)))
+      p must failToParse("abcabcabc")(UnexpectedCharacter(Line("abcabcabc", 0, 3), Set("\\s+")))
     }
   }
 
@@ -49,6 +51,10 @@ class EBNFSpec extends ParsebackSpec {
     "parse three" in {
       p must parseOk("abcabcabc")("abc" :: "abc" :: "abc" :: Nil)
     }
+
+    "not ignore whitespace implicit" in {
+      p must parseOk("abc   abcabc")("abc" :: "abc" :: "abc" :: Nil)
+    }
   }
 
   "p+" should {
@@ -64,6 +70,10 @@ class EBNFSpec extends ParsebackSpec {
 
     "parse three" in {
       p must parseOk("abcabcabc")("abc" :: "abc" :: "abc" :: Nil)
+    }
+
+    "not ignore whitespace implicit" in {
+      p must parseOk("abc   abcabc")("abc" :: "abc" :: "abc" :: Nil)
     }
   }
 }

@@ -78,7 +78,7 @@ sealed trait Parser[+A] {
   def ?(): Parser[Option[A]] =
     Parser.Epsilon(None) | (this map { Some(_) })
 
-  def *(): Parser[List[A]] = {
+  def *(implicit W: Whitespace): Parser[List[A]] = {
     lazy val back: Parser[List[A]] = (
         this ~ back   ^^ { (_, h, t) => h :: t }
       | ""           ^^^ Nil
@@ -87,7 +87,7 @@ sealed trait Parser[+A] {
     back
   }
 
-  def +(): Parser[List[A]] = {
+  def +(implicit W: Whitespace): Parser[List[A]] = {
     lazy val back: Parser[List[A]] = (
         this ~ back   ^^ { (_, h, t) => h :: t }
       | this          ^^ { (_, h) => h :: Nil }

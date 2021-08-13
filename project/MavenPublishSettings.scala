@@ -5,7 +5,7 @@ import _root_.io.crashbox.gpg.SbtGpg.autoImport.gpgOptions
 object MavenPublishSettings {
   lazy val mavenPublishSettings: List[Def.Setting[_]] = List(
 
-    version := "0.5",
+    version := "0.5.1",
 
     /**
      * Publishing information
