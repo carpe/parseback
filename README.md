@@ -30,7 +30,7 @@ Parseback is a Scala implementation of [parsing with derivatives](http://matt.mi
 ## Usage
 
 ```sbt
-val ParsebackVersion = "0.5"
+val ParsebackVersion = "0.6"
 
 libraryDependencies += "io.carpe" %% "parseback" % ParsebackVersion
 ```
