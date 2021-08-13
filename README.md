@@ -35,7 +35,7 @@ val ParsebackVersion = "0.6"
 libraryDependencies += "io.carpe" %% "parseback" % ParsebackVersion
 ```
 
-The current, "stable" version of parseback is **0.5**.  Cross builds are available for Scala 2.12 and 2.13.
+Cross builds are available for Scala 2.12 and 2.13.
 
 ## Motivation
 
